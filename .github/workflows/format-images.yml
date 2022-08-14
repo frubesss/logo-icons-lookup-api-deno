@@ -1,0 +1,60 @@
+name: Format images
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: mfinelli/setup-imagemagick@v1
+
+      - name: Get logos changed
+        id: changed-logos
+        uses: tj-actions/changed-files@v24.1
+        with:
+          separator: ","
+          files: |
+            ./logos
+
+      - name: Resize to 200
+        run: |
+          IFS=$','
+          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
+          for file in $vals; do
+            magick mogrify -resize 200x200 "$file";
+          done
+
+      - name: Format to png
+        run: |
+          IFS=$','
+          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
+          for file in $vals; do
+            magick mogrify -format png "$file";
+          done
+
+      - name: Remove any left over none png images from mogrify command
+        run: cd ./logos && find . -type f ! -name '*.png' -delete
+
+      - name: Compress images
+        uses: calibreapp/image-actions@main
+        with:
+          compressOnly: true
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        uses: endbug/add-and-commit@v4
+        with:
+          add: './logos'
+          author_name: "github-actions[bot]"
+          author_email: "github-actions@users.noreply.github.com"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

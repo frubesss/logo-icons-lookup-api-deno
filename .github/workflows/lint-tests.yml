@@ -1,0 +1,28 @@
+name: Lint and tests
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - name: Setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Verify formatting
+        run: deno fmt --check
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno test ./tests/requestHandler.test.ts --allow-read
+
+      - name: Coverage
+        run: deno coverage --lcov cov/ > cov.lcov
