@@ -90,7 +90,7 @@ string[]
 
 - Find the company logo icon you would like to add.
   [Brandfetch](https://www.brandfetch.com) is a great resource for finding good,
-  high quality logos. If Brandfetch doest not find the logo you want, you can
+  high quality logos. If Brandfetch does not find the logo you want, you can
   also try [Clearbit logo](https://clearbit.com/logo)
 
 - Ensure the logo is:
