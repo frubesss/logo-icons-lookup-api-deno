@@ -11,6 +11,7 @@
 > on end.
 >
 > For example: You want the company logo for American Express but the API you are consuming gives you American Express Europe Ltd.
+> This API will return the American Express logo due to American Express being a pattern match.
 
 ## Usage
 
