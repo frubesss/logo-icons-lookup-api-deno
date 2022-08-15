@@ -2,13 +2,15 @@
 
 [![Tests](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml/badge.svg?branch=main)](https://github.com/frubesss/financial-logos-api-/actions/workflows/lint-tests.yml)
 
-> This API allows consumers to find logo icons for a company based on fuzzy
-> searching. Fulfilling the use case where you want to display the logo icon of
+> This API allows consumers to find logo icons for a company based on string pattern matching.
+> Fulfilling the use case where you want to display the logo icon of
 > a company, but you only have a partial match of the company name.
 >
 > This is useful in scenarios where you are consuming company names from an API
 > outside of your control, and you want to determine the icon for that company
 > on end.
+>
+> For example: You want the company logo for American Express but the API you are consuming gives you American Express Europe Ltd.
 
 ## Usage
 
