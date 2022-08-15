@@ -14,6 +14,8 @@
 > are consuming gives you American Express Europe Ltd. This API will return the
 > American Express logo due to American Express being a pattern match.
 
+- [Gallery of all logos currently available](https://financial-logos-app.vercel.app)
+
 ## Usage
 
 You have two choices.
@@ -23,8 +25,7 @@ You have two choices.
    require to this repository. Following the steps [here](#Contributing).
 
 2. Fork this repository/use this template and host the API in your own deno
-   deploy environment [here](https://deno.com/deploy/docs). Or even host it in
-   your own serverless environment. (This has still yet to be tested).
+   deploy environment [here](https://deno.com/deploy/docs).
 
 ## API
 
@@ -83,10 +84,6 @@ string[]
 #### Response
 
 ![Monzo Logo Icon](./logos/monzo.png)
-
-## Consumer Examples
-
-- [Live gallery of all logos](https://financial-logos-app.vercel.app)
 
 ## Contributing
 
