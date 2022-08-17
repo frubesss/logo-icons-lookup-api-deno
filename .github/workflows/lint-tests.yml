@@ -22,7 +22,7 @@ jobs:
         run: deno lint
 
       - name: Run tests
-        run: deno test ./tests/requestHandler.test.ts --allow-read
+        run: deno test --allow-read
 
       - name: Coverage
         run: deno coverage --lcov cov/ > cov.lcov
