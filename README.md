@@ -127,7 +127,7 @@ deno run --allow-read --allow-net ./index.ts
 ### Running tests
 
 ```sh
-deno test --allow-read ./tests/requestHandler.test.ts
+deno test --allow-read
 ```
 
 ## Built with

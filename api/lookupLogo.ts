@@ -1,7 +1,7 @@
 import { resize } from "https://deno.land/x/deno_image@0.0.4/index.ts";
 
 import logRequest from "../utils/logRequest.ts";
-import getAllLogoIconNames from "../utils/getAllLogoIconNames.ts";
+import findLogoIcon from "../utils/findLogoIcon.ts";
 
 const lookupLogo = async (request: Request, requestStartTime: number) => {
   const requestUrl = new URL(request.url);
@@ -11,11 +11,7 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
   );
 
   if (logoNameQueryParameter) {
-    const allLogoIconNames = await getAllLogoIconNames();
-
-    const logosFound = allLogoIconNames.filter((logoIconName) =>
-      logoNameQueryParameter.toLowerCase().includes(logoIconName.toLowerCase())
-    );
+    const logosFound = await findLogoIcon(logoNameQueryParameter);
 
     if (logosFound.length > 0) {
       const logoFound = logosFound[0];
