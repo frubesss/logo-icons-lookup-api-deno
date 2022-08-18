@@ -2,7 +2,7 @@ import { assertEquals } from "https://deno.land/std@0.150.0/testing/asserts.ts";
 
 import findLogoIcon from "../utils/findLogoIcon.ts";
 
-Deno.test("findLogoIcon", async (t) => {
+Deno.test("findLogoIcon", async (test) => {
   const testCases = [{
     logoSearchedFor: "HSBC Bank plc",
     logoToBeFound: "hsbc",
@@ -18,13 +18,13 @@ Deno.test("findLogoIcon", async (t) => {
   }];
 
   await Promise.all(testCases.map((testCase) =>
-    t.step({
+      test.step({
       name:
         `returns ${testCase.logoToBeFound} when searching for ${testCase.logoSearchedFor}`,
       fn: async () => {
-        const response = await findLogoIcon(testCase.logoSearchedFor);
+        const foundLogoIcon = await findLogoIcon(testCase.logoSearchedFor);
 
-        assertEquals(response[0], testCase.logoToBeFound);
+        assertEquals(foundLogoIcon[0], testCase.logoToBeFound);
       },
       sanitizeOps: false,
       sanitizeResources: false,
