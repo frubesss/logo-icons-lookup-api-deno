@@ -1,6 +1,4 @@
-<!-- Thank you for contributing to this project! -->
-
-### Check off the following:
+### If you are adding a logo, please check off the following:
 
 - [ ] Logo filenames are named after the company it represents
 - [ ] Logos are a square in dimensions

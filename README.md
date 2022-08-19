@@ -1,6 +1,6 @@
 # Welcome to Logo Icons Lookup API 👋
 
-[![Tests](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml/badge.svg?branch=main)](https://github.com/frubesss/financial-logos-api-/actions/workflows/lint-tests.yml)
+[![Tests](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml/badge.svg?branch=main)](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml)
 
 > This API allows consumers to find logo icons for a company based on string
 > pattern matching. Fulfilling the use case where you want to display the logo

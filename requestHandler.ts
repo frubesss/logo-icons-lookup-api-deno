@@ -19,7 +19,7 @@ const requestHandler = async (request: Request) => {
   }
 
   const response = new Response("Use routes /all_logos or /lookup_logo", {
-    status: 500,
+    status: 400,
   });
   logRequest(request, response, Date.now() - requestStartTime);
   return response;

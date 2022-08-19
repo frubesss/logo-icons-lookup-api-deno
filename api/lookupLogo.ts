@@ -49,7 +49,7 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
           return new Response(
             "Size query parameter must be between 1 and 200",
             {
-              status: 500,
+              status: 400,
             },
           );
         }
@@ -77,7 +77,7 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
     const response = new Response(
       "Please provide a logoName query parameter",
       {
-        status: 500,
+        status: 400,
       },
     );
     logRequest(request, response, Date.now() - requestStartTime);

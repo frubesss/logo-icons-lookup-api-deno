@@ -18,7 +18,7 @@ Deno.test("findLogoIcon", async (test) => {
   }];
 
   await Promise.all(testCases.map((testCase) =>
-      test.step({
+    test.step({
       name:
         `returns ${testCase.logoToBeFound} when searching for ${testCase.logoSearchedFor}`,
       fn: async () => {
