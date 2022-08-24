@@ -8,7 +8,7 @@
 >
 > This is useful in scenarios where you are consuming company names from an API
 > outside of your control, and you want to determine the icon for that company
-> on end.
+> on your end.
 >
 > For example: You want the company logo for American Express but the API you
 > are consuming gives you American Express Europe Ltd. This API will return the
