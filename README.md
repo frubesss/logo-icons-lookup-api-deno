@@ -1,6 +1,6 @@
-# Welcome to Logo Icons Lookup API 👋
+# Welcome to Logo Icons Lookup API Deno 👋
 
-[![Tests](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml/badge.svg?branch=main)](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml)
+[![Tests](https://github.com/frubesss/logo-icons-lookup-api-deno/actions/workflows/lint-tests.yml/badge.svg?branch=main)](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml)
 
 > This API allows consumers to find logo icons for a company based on string
 > pattern matching. Fulfilling the use case where you want to display the logo
@@ -21,7 +21,7 @@
 You have two choices.
 
 1. Use the already hosted version of this API at
-   https://logo-icons-lookup-api.deno.dev and add the company logo icons you
+   https://logo-icons-lookup-api-deno.deno.dev and add the company logo icons you
    require to this repository. Following the steps [here](#Contributing).
 
 2. Fork this repository/use this template and host the API in your own deno
@@ -45,7 +45,7 @@ string[]
 
 ###### Request
 
-`GET https://logo-icons-lookup-api.deno.dev/all_logos`
+`GET https://logo-icons-lookup-api-deno.deno.dev/all_logos`
 
 ###### Response
 
@@ -79,7 +79,7 @@ string[]
 
 #### Request
 
-`GET https://logo-icons-lookup-api.deno.dev/lookup_logo?logoName=monzo bank&size=50`
+`GET https://logo-icons-lookup-api-deno.deno.dev/lookup_logo?logoName=monzo bank&size=50`
 
 #### Response
 
