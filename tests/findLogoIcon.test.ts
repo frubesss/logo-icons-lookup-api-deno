@@ -24,7 +24,7 @@ Deno.test("findLogoIcon", async (test) => {
       fn: async () => {
         const foundLogoIcon = await findLogoIcon(testCase.logoSearchedFor);
 
-        assertEquals(foundLogoIcon[0], testCase.logoToBeFound);
+        assertEquals(foundLogoIcon, testCase.logoToBeFound);
       },
       sanitizeOps: false,
       sanitizeResources: false,

@@ -11,11 +11,9 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
   );
 
   if (logoNameQueryParameter) {
-    const logosFound = await findLogoIcon(logoNameQueryParameter);
+    const logoFound = await findLogoIcon(logoNameQueryParameter);
 
-    if (logosFound.length > 0) {
-      const logoFound = logosFound[0];
-
+    if (logoFound !== undefined) {
       const sizeQueryParameter = requestUrl.searchParams.get(
         "size",
       );
