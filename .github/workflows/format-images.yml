@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: mfinelli/setup-imagemagick@v2
+      - uses: mfinelli/setup-imagemagick@v5
 
       - name: Get logos changed
         id: changed-logos
