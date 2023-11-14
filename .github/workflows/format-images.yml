@@ -2,57 +2,59 @@ name: Format images
 
 on:
   pull_request:
-    paths:
-      - 'logoIcons/**/*.jpg'
-      - 'logoIcons/**/*.jpeg'
-      - 'logoIcons/**/*.png'
-      - 'logoIcons/**/*.webp'
+    branches:
+      - main
 
 jobs:
   build:
-    # Only run on Pull Requests within the same repository, and not from forks.
-    if: github.event.pull_request.head.repo.full_name == github.repository
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
+      - uses: mfinelli/setup-imagemagick@v1
 
-      - name: Get logo icons changed
-        id: changed-logo-icons
-        uses: tj-actions/changed-files@v37
+      - name: Get logos changed
+        id: changed-logos
+        uses: tj-actions/changed-files@v24.1
         with:
-          separator: ','
+          separator: ","
           files: |
             ./logoIcons
 
-      - name: Resize images to 200x200 and convert to .png
+      - name: Resize to 200
         run: |
           IFS=$','
-          vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
+          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
           for file in $vals; do
-            npx sharp resize 200 200 --format png --output ./logoIcons --input "$file"
+            magick mogrify -resize 200x200 "$file";
           done
 
-      - name: Remove any left over none png images from sharp command
-        run: cd ./logoIcons && find . -type f ! -name '*.png' -delete
-
-      - name: Commit and push changes
+      - name: Format to png
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m "Delete non-PNG images and resize other images"
-          git push
+          IFS=$','
+          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
+          for file in $vals; do
+            magick mogrify -format png "$file";
+          done
+
+      - name: Remove any left over none png images from mogrify command
+        run: cd ./logoIcons && find . -type f ! -name '*.png' -delete
 
       - name: Compress images
         uses: calibreapp/image-actions@main
         with:
+          compressOnly: true
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        uses: endbug/add-and-commit@v4
+        with:
+          add: './logoIcons'
+          author_name: "github-actions[bot]"
+          author_email: "github-actions@users.noreply.github.com"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
