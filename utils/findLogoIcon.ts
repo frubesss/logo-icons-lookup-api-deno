@@ -5,7 +5,9 @@ const findLogoIcon = async (logoIconName: string) => {
   const allLogoIcons = await getAllLogoIcons();
 
   return allLogoIcons.find((logoIcon) =>
-      toLowerCaseAndRemoveSpaces(logoIconName).includes(toLowerCaseAndRemoveSpaces(logoIcon))
+    toLowerCaseAndRemoveSpaces(logoIconName).includes(
+      toLowerCaseAndRemoveSpaces(logoIcon),
+    )
   );
 };
 
