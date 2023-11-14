@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
@@ -31,7 +32,7 @@ jobs:
       - name: Resize to 200x200
         run: |
           IFS=$','
-          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
+          vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           for file in $vals; do
             magick mogrify -resize 200x200 "$file";
           done
@@ -39,7 +40,7 @@ jobs:
       - name: Convert to png
         run: |
           IFS=$','
-          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
+          vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           for file in $vals; do
             magick mogrify -format png "$file";
           done
