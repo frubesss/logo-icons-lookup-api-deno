@@ -3,10 +3,10 @@ name: Format images
 on:
   pull_request:
     paths:
-      - 'logoIcons/**/*.jpg'
-      - 'logoIcons/**/*.jpeg'
-      - 'logoIcons/**/*.png'
-      - 'logoIcons/**/*.webp'
+      - 'logos/**/*.jpg'
+      - 'logos/**/*.jpeg'
+      - 'logos/**/*.png'
+      - 'logos/**/*.webp'
 
 jobs:
   build:
