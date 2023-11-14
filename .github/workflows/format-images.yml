@@ -19,20 +19,20 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: mfinelli/setup-imagemagick@v1
+      - uses: mfinelli/setup-imagemagick@v5
 
       - name: Get logo icons changed
         id: changed-logo-icons
         uses: tj-actions/changed-files@v39
         with:
-          separator: ','
+          separator: ","
           files: |
-            ./logos
+            ./logoIcons
 
       - name: Resize to 200x200
         run: |
           IFS=$','
-          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
+          vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           for file in $vals; do
             magick mogrify -resize 200x200 "$file";
           done
@@ -40,7 +40,7 @@ jobs:
       - name: Convert to png
         run: |
           IFS=$','
-          vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
+          vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           for file in $vals; do
             magick mogrify -format png "$file";
           done
@@ -48,7 +48,7 @@ jobs:
       - name: Remove any left over none png images from mogrify command
         run: cd ./logoIcons && find . -type f ! -name '*.png' -delete
 
-      - name: Compress images
+      - name: Compress logo icons
         uses: calibreapp/image-actions@main
         with:
           compressOnly: true
