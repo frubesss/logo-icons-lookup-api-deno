@@ -1,10 +1,10 @@
 import getAllLogoIcons from "./getAllLogoIcons.ts";
 
 const findLogoIcon = async (logoName: string) => {
-  const allLogoIconNames = await getAllLogoIcons();
+  const allLogoIcons = await getAllLogoIcons();
 
-  return allLogoIconNames.find((logoIconName) =>
-    logoName.toLowerCase().includes(logoIconName.toLowerCase())
+  return allLogoIcons.find((logoIcon) =>
+    logoName.toLowerCase().includes(logoIcon.toLowerCase())
   );
 };
 

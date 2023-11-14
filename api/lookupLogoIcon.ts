@@ -3,17 +3,17 @@ import { resize } from "https://deno.land/x/deno_image@0.0.4/index.ts";
 import logRequest from "../utils/logRequest.ts";
 import findLogoIcon from "../utils/findLogoIcon.ts";
 
-const lookupLogo = async (request: Request, requestStartTime: number) => {
+const lookupLogoIcon = async (request: Request, requestStartTime: number) => {
   const requestUrl = new URL(request.url);
 
-  const logoNameQueryParameter = requestUrl.searchParams.get(
-    "logoName",
+  const logoIconNameQueryParameter = requestUrl.searchParams.get(
+    "logoIconName",
   );
 
-  if (logoNameQueryParameter) {
-    const logoFound = await findLogoIcon(logoNameQueryParameter);
+  if (logoIconNameQueryParameter) {
+    const logoIconFound = await findLogoIcon(logoIconNameQueryParameter);
 
-    if (logoFound !== undefined) {
+    if (logoIconFound !== undefined) {
       const sizeQueryParameter = requestUrl.searchParams.get(
         "size",
       );
@@ -26,7 +26,7 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
         ) {
           const response = new Response(
             await resize(
-              await Deno.readFile(`./logos/${logoFound}.png`),
+              await Deno.readFile(`./logoIcons/${logoIconFound}.png`),
               {
                 width: sizeQueryParameterAsNumber,
                 height: sizeQueryParameterAsNumber,
@@ -52,7 +52,7 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
         }
       } else {
         const response = new Response(
-          await Deno.readFile(`./logos/${logoFound}.png`),
+          await Deno.readFile(`./logoIcons/${logoIconFound}.png`),
           {
             status: 200,
             headers: {
@@ -65,13 +65,13 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
         return response;
       }
     } else {
-      const response = new Response("No logo found", { status: 404 });
+      const response = new Response("No logo icon found", { status: 404 });
       logRequest(request, response, Date.now() - requestStartTime);
       return response;
     }
   } else {
     const response = new Response(
-      "Please provide a logoName query parameter",
+      "Please provide a logoIconName query parameter",
       {
         status: 400,
       },
@@ -81,4 +81,4 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
   }
 };
 
-export default lookupLogo;
+export default lookupLogoIcon;
