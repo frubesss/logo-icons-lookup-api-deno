@@ -1,10 +1,11 @@
 import getAllLogoIcons from "./getAllLogoIcons.ts";
+import toLowerCaseAndRemoveSpaces from "./toLowerCaseAndRemoveSpaces.ts";
 
-const findLogoIcon = async (logoName: string) => {
+const findLogoIcon = async (logoIconName: string) => {
   const allLogoIcons = await getAllLogoIcons();
 
   return allLogoIcons.find((logoIcon) =>
-    logoName.toLowerCase().includes(logoIcon.toLowerCase())
+      toLowerCaseAndRemoveSpaces(logoIconName).includes(toLowerCaseAndRemoveSpaces(logoIcon))
   );
 };
 
