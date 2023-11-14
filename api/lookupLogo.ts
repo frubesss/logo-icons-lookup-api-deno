@@ -36,8 +36,7 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
               status: 200,
               headers: {
                 "cache-control": "max-age=86400",
-                "Access-Control-Allow-Origin":
-                  "https://financial-logos-app.vercel.app",
+                "Access-Control-Allow-Origin": "*",
               },
             },
           );
@@ -58,8 +57,7 @@ const lookupLogo = async (request: Request, requestStartTime: number) => {
             status: 200,
             headers: {
               "cache-control": "max-age=86400",
-              "Access-Control-Allow-Origin":
-                "https://financial-logos-app.vercel.app",
+              "Access-Control-Allow-Origin": "*",
             },
           },
         );

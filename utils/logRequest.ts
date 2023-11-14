@@ -5,7 +5,7 @@ import {
   green,
   red,
   yellow,
-} from "https://deno.land/std@0.151.0/fmt/colors.ts";
+} from "https://deno.land/std@0.206.0/fmt/colors.ts";
 
 const logRequest = (request: Request, response: Response, time: number) => {
   const requestUrl = new URL(request.url);

@@ -2,8 +2,11 @@ name: Format images
 
 on:
   pull_request:
-    branches:
-      - main
+    paths:
+      - 'logoIcons/**/*.jpg'
+      - 'logoIcons/**/*.jpeg'
+      - 'logoIcons/**/*.png'
+      - 'logoIcons/**/*.webp'
 
 jobs:
   build:
@@ -11,21 +14,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - uses: mfinelli/setup-imagemagick@v1
 
-      - name: Get logos changed
-        id: changed-logos
-        uses: tj-actions/changed-files@v24.1
+      - name: Get logo icons changed
+        id: changed-logo-icons
+        uses: tj-actions/changed-files@v39
         with:
-          separator: ","
+          separator: ','
           files: |
             ./logos
 
-      - name: Resize to 200
+      - name: Resize to 200x200
         run: |
           IFS=$','
           vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
@@ -33,7 +37,7 @@ jobs:
             magick mogrify -resize 200x200 "$file";
           done
 
-      - name: Format to png
+      - name: Convert to png
         run: |
           IFS=$','
           vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"

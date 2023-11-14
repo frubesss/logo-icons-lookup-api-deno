@@ -2,7 +2,7 @@ import removeFileExtension from "./removeFileExtension.ts";
 
 type LogoIcons = string[];
 
-const getAllLogoIconNames = async (): Promise<LogoIcons> => {
+const getAllLogoIcons = async (): Promise<LogoIcons> => {
   const logos: LogoIcons = [];
 
   for await (const logo of Deno.readDir("./logos")) {
@@ -12,4 +12,4 @@ const getAllLogoIconNames = async (): Promise<LogoIcons> => {
   return logos;
 };
 
-export default getAllLogoIconNames;
+export default getAllLogoIcons;

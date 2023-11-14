@@ -21,8 +21,8 @@
 You have two choices.
 
 1. Use the already hosted version of this API at
-   https://logo-icons-lookup-api-deno.deno.dev and add the company logo icons you
-   require to this repository. Following the steps [here](#Contributing).
+   https://logo-icons-lookup-api-deno.deno.dev and add the company logo icons
+   you require to this repository. Following the steps [here](#Contributing).
 
 2. Fork this repository/use this template and host the API in your own deno
    deploy environment [here](https://deno.com/deploy/docs).

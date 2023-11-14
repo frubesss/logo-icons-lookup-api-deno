@@ -1,6 +1,6 @@
-import { assertEquals } from "https://deno.land/std@0.150.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.206.0/assert/mod.ts";
 
-import getAllLogoIconNames from "../utils/getAllLogoIconNames.ts";
+import getAllLogoIcons from "../utils/getAllLogoIcons.ts";
 import requestHandler from "../requestHandler.ts";
 
 Deno.test("returns 400 response when no valid path provided", async () => {
@@ -16,7 +16,7 @@ Deno.test("returns name of all logos in logos directory when /all_logos is calle
   const response = await requestHandler(request);
   const responseJson = await response.json();
 
-  const allLogoNames = await getAllLogoIconNames();
+  const allLogoNames = await getAllLogoIcons();
 
   assertEquals(response.status, 200);
   assertEquals(responseJson, allLogoNames);
