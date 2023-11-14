@@ -19,7 +19,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: mfinelli/setup-imagemagick@v1
+      - uses: mfinelli/setup-imagemagick@v5
 
       - name: Get logo icons changed
         id: changed-logo-icons
@@ -27,7 +27,7 @@ jobs:
         with:
           separator: ','
           files: |
-            ./logos
+            ./logoIcons
 
       - name: Resize to 200x200
         run: |
