@@ -16,13 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - uses: mfinelli/setup-imagemagick@v5
 
       - name: Get logo icons changed
-        id: changed-logos-icons
-        uses: tj-actions/changed-files@v37
+        id: changed-logo-icons
+        uses: tj-actions/changed-files@v39
         with:
           separator: ","
           files: |
@@ -36,7 +36,7 @@ jobs:
             magick mogrify -resize 200x200 "$file";
           done
 
-      - name: Change to png
+      - name: Convert to png
         run: |
           IFS=$','
           vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
