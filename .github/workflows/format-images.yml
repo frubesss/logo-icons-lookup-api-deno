@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - uses: mfinelli/setup-imagemagick@v5
 
@@ -28,7 +28,7 @@ jobs:
           files: |
             ./logoIcons
 
-      - name: Resize to 200x200x
+      - name: Resize to 200x200
         run: |
           IFS=$','
           vals="${{ steps.changed-logos.outputs.all_changed_and_modified_files }}"
@@ -53,10 +53,11 @@ jobs:
           compressOnly: true
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m "Delete non-PNG images and resize other images"
-          git push
+      - name: Commit changes
+        uses: endbug/add-and-commit@v4
+        with:
+          add: './logoIcons'
+          author_name: "github-actions[bot]"
+          author_email: "github-actions@users.noreply.github.com"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
