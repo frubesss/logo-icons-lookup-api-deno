@@ -3,10 +3,10 @@ name: Format images
 on:
   pull_request:
     paths:
-      - 'logos/**/*.jpg'
-      - 'logos/**/*.jpeg'
-      - 'logos/**/*.png'
-      - 'logos/**/*.webp'
+      - 'logoIcons/**/*.jpg'
+      - 'logoIcons/**/*.jpeg'
+      - 'logoIcons/**/*.png'
+      - 'logoIcons/**/*.webp'
 
 jobs:
   build:
@@ -46,7 +46,7 @@ jobs:
           done
 
       - name: Remove any left over none png images from mogrify command
-        run: cd ./logos && find . -type f ! -name '*.png' -delete
+        run: cd ./logoIcons && find . -type f ! -name '*.png' -delete
 
       - name: Compress images
         uses: calibreapp/image-actions@main
@@ -57,7 +57,7 @@ jobs:
       - name: Commit changes
         uses: endbug/add-and-commit@v4
         with:
-          add: './logos'
+          add: './logoIcons'
           author_name: "github-actions[bot]"
           author_email: "github-actions@users.noreply.github.com"
         env:

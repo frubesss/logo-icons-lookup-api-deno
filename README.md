@@ -33,7 +33,7 @@ You have two choices.
 
 #### Request
 
-`GET /all_logos`
+`GET /all_logo_icons`
 
 #### Response
 
@@ -45,7 +45,7 @@ string[]
 
 ###### Request
 
-`GET https://logo-icons-lookup-api-deno.deno.dev/all_logos`
+`GET https://logo-icons-lookup-api-deno.deno.dev/all_logo_icons`
 
 ###### Response
 
@@ -62,12 +62,12 @@ string[]
 
 #### Request
 
-`GET /lookup_logo?logoName=:logoName`
+`GET /lookup_logo_icon?logoIconName=:logoIconName`
 
-| Query Parameter | Type   | Default   | Required | Description                                                                                                                            |
-| --------------- | ------ | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| logoName        | string | undefined | Yes      | Name of logo you would like to find                                                                                                    |
-| size            | number | 200       | No       | Size of the logo image to be returned. For performance, you want to set this to the same size you will be rendering in the application |
+| Query Parameter | Type   | Default   | Required | Description                                                                                                                                 |
+| --------------- | ------ | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| logoIconName    | string | undefined | Yes      | Name of logo icon you would like to find                                                                                                    |
+| size            | number | 200       | No       | Size of the logo icon image to be returned. For performance, you want to set this to the same size you will be rendering in the application |
 
 #### Response
 
@@ -79,11 +79,11 @@ string[]
 
 #### Request
 
-`GET https://logo-icons-lookup-api-deno.deno.dev/lookup_logo?logoName=monzo bank&size=50`
+`GET https://logo-icons-lookup-api-deno.deno.dev/lookup_logo_icon?logoIconName=monzo bank&size=50`
 
 #### Response
 
-![Monzo Logo Icon](./logos/monzo.png)
+![Monzo Logo Icon](logoIcons/monzo.png)
 
 ## Contributing
 

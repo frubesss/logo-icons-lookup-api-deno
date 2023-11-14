@@ -4,24 +4,24 @@ import findLogoIcon from "../utils/findLogoIcon.ts";
 
 Deno.test("findLogoIcon", () => {
   const testCases = [
-    { logoSearchedFor: "HSBC Bank plc", logoToBeFound: "hsbc" },
-    { logoSearchedFor: "Barclays Bank plc", logoToBeFound: "barclays" },
-    { logoSearchedFor: "Lloyds Bank Plc", logoToBeFound: "lloyds" },
+    { logoIconSearchedFor: "HSBC Bank plc", logoIconToBeFound: "hsbc" },
+    { logoIconSearchedFor: "Barclays Bank plc", logoIconToBeFound: "barclays" },
+    { logoIconSearchedFor: "Lloyds Bank Plc", logoIconToBeFound: "lloyds" },
     {
-      logoSearchedFor: "Standard Chartered Bank",
-      logoToBeFound: "standard chartered",
+      logoIconSearchedFor: "Standard Chartered Bank",
+      logoIconToBeFound: "standard chartered",
     },
   ];
 
   for (const testCase of testCases) {
-    Deno.test(`should find correct logo for ${testCase.logoSearchedFor}`, async () => {
-      const foundLogoIcon = await findLogoIcon(testCase.logoSearchedFor);
-      assertEquals(foundLogoIcon, testCase.logoToBeFound);
+    Deno.test(`should find correct logo for ${testCase.logoIconSearchedFor}`, async () => {
+      const foundLogoIcon = await findLogoIcon(testCase.logoIconSearchedFor);
+      assertEquals(foundLogoIcon, testCase.logoIconToBeFound);
     });
   }
 
   Deno.test("should return null for a non-existent logo", async () => {
-    const logo = await findLogoIcon("Non Existent Bank");
+    const logo = await findLogoIcon("Non existent logo icon");
     assertEquals(logo, null);
   });
 });

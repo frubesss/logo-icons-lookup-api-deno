@@ -1,4 +1,3 @@
-const removeFileExtension = (logoFile: string) =>
-  logoFile.replace(/\.[^/.]+$/, "");
+const removeFileExtension = (file: string) => file.replace(/\.[^/.]+$/, "");
 
 export default removeFileExtension;

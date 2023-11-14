@@ -3,13 +3,13 @@ import removeFileExtension from "./removeFileExtension.ts";
 type LogoIcons = string[];
 
 const getAllLogoIcons = async (): Promise<LogoIcons> => {
-  const logos: LogoIcons = [];
+  const logoIcons: LogoIcons = [];
 
-  for await (const logo of Deno.readDir("./logos")) {
-    logos.push(removeFileExtension(logo.name));
+  for await (const logoIcon of Deno.readDir("./logoIcons")) {
+    logoIcons.push(removeFileExtension(logoIcon.name));
   }
 
-  return logos;
+  return logoIcons;
 };
 
 export default getAllLogoIcons;
