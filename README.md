@@ -1,39 +1,41 @@
-# Welcome to Logo Icons Lookup API Deno 👋
+# Logo Icons Lookup API - Deno 🚀
 
 [![Tests](https://github.com/frubesss/logo-icons-lookup-api-deno/actions/workflows/lint-tests.yml/badge.svg?branch=main)](https://github.com/frubesss/logo-icons-lookup-api/actions/workflows/lint-tests.yml)
 
-> This API allows consumers to find logo icons for a company based on string
-> pattern matching. Fulfilling the use case where you want to display the logo
-> icon of a company, but you only have a partial match of the company name.
->
-> This is useful in scenarios where you are consuming company names from an API
-> outside of your control, and you want to determine the icon for that company
-> on your end.
->
-> For example: You want the company logo for American Express but the API you
-> are consuming gives you American Express Europe Ltd. This API will return the
-> American Express logo due to American Express being a pattern match.
+# Overview
+
+Effortlessly Find and Display Company Logo Icons! The Logo Icons Lookup API
+offers a convenient way to retrieve company logos based on partial or full
+company names. This is especially handy when working with external APIs that
+provide variations of company names.
+
+Example Use Case: You're given 'American Express Europe Ltd' and need the
+American Express logo. This API simplifies the process by returning the relevant
+logo through pattern matching.
+
+Check out our Logo Gallery to see all available logos.
 
 - [Gallery of all logos currently available](https://financial-logos-app.vercel.app)
 
-## Usage
+## How to Use
 
-You have two choices.
+### Options:
 
-1. Use the already hosted version of this API at
-   https://logo-icons-lookup-api-deno.deno.dev and add the company logo icons
-   you require to this repository. Following the steps [here](#Contributing).
+1. **Hosted API**: Directly use the hosted API at
+   https://logo-icons-lookup-api-deno.deno.dev and add the logos you need by
+   contributing to this repository. Detailed instructions are available in the
+   Contributing section.
 
-2. Fork this repository/use this template and host the API in your own deno
-   deploy environment [here](https://deno.com/deploy/docs).
+2. **Self-Hosting**: Fork this repository or use it as a template, and deploy
+   your own instance using Deno Deploy.
 
-## API
+## API Endpoints
 
-### Get list of all logo icons available
+### 1. Get All Logo Icons
 
 #### Request
 
-`GET /all_logos`
+`GET /all_logo_icons`
 
 #### Response
 
@@ -45,7 +47,7 @@ string[]
 
 ###### Request
 
-`GET https://logo-icons-lookup-api-deno.deno.dev/all_logos`
+`GET https://logo-icons-lookup-api-deno.deno.dev/all_logo_icons`
 
 ###### Response
 
@@ -58,16 +60,16 @@ string[]
 ]
 ```
 
-### Lookup logo icon by name
+### 2. Lookup Logo Icon by Name
 
 #### Request
 
-`GET /lookup_logo?logoName=:logoName`
+`GET /lookup_logo_icon?logoIconName=:logoIconName`
 
-| Query Parameter | Type   | Default   | Required | Description                                                                                                                            |
-| --------------- | ------ | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| logoName        | string | undefined | Yes      | Name of logo you would like to find                                                                                                    |
-| size            | number | 200       | No       | Size of the logo image to be returned. For performance, you want to set this to the same size you will be rendering in the application |
+| Query Parameter | Type   | Default   | Required | Description                                                                                                                                 |
+| --------------- | ------ | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| logoIconName    | string | undefined | Yes      | Name of logo icon you would like to find                                                                                                    |
+| size            | number | 200       | No       | Size of the logo icon image to be returned. For performance, you want to set this to the same size you will be rendering in the application |
 
 #### Response
 
@@ -79,36 +81,30 @@ string[]
 
 #### Request
 
-`GET https://logo-icons-lookup-api-deno.deno.dev/lookup_logo?logoName=monzo bank&size=50`
+`GET https://logo-icons-lookup-api-deno.deno.dev/lookup_logo_icon?logoIconName=monzo bank&size=50`
 
 #### Response
 
-![Monzo Logo Icon](./logos/monzo.png)
+![Monzo Logo Icon](logoIcons/monzo.png)
 
 ## Contributing
 
-### Add new logo icon
+### Add a New Logo Icon
 
-- Find the company logo icon you would like to add.
-  [Brandfetch](https://www.brandfetch.com) is a great resource for finding good,
-  high quality logos. If Brandfetch does not find the logo you want, you can
-  also try [Clearbit logo](https://clearbit.com/logo)
-
-- Ensure the logo is:
-  - a square in dimensions, so 50x50, 100x100, 200x200 etc
-  - not a duplicate of another logo in the repository
-- Name the logo filename to the company it is representing
-- Add the logo to the `logos` directory
-- Create a PR, and GitHub actions will format it for you:
-  - To a png
-  - To a square
-  - Compress the logo
+- Find the logo on sites like [Brandfetch](https://www.brandfetch.com) or
+  [Clearbit logo](https://clearbit.com/logo).
+- Ensure the logo is square in dimensions, no less than 200x200 and unique
+  within the repository.
+- Name the file after the company it represents.
+- Add it to the logoIcons directory.
+- Create a PR. GitHub actions will auto-format the image (png, square,
+  compressed).
 
 ### Other
 
 Any other changes, or suggestions are welcome.
 
-## Local development
+## Local Development
 
 ### Setup
 
