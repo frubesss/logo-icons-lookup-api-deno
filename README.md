@@ -22,9 +22,9 @@ Check out our Logo Gallery to see all available logos.
 ### Options:
 
 1. **Hosted API**: Directly use the hosted API at
-   [https://logo-icons-lookup-api-deno.deno.dev](https://logo-icons-lookup-api.deno.dev) and add the logos you need by
-   contributing to this repository. Detailed instructions are available in the
-   Contributing section.
+   [https://logo-icons-lookup-api-deno.deno.dev](https://logo-icons-lookup-api.deno.dev)
+   and add the logos you need by contributing to this repository. Detailed
+   instructions are available in the Contributing section.
 
 2. **Self-Hosting**: Fork this repository or use it as a template, and deploy
    your own instance using Deno Deploy.
