@@ -22,7 +22,7 @@ Check out our Logo Gallery to see all available logos.
 ### Options:
 
 1. **Hosted API**: Directly use the hosted API at
-   https://logo-icons-lookup-api-deno.deno.dev and add the logos you need by
+   [https://logo-icons-lookup-api-deno.deno.dev](https://logo-icons-lookup-api.deno.dev) and add the logos you need by
    contributing to this repository. Detailed instructions are available in the
    Contributing section.
 
@@ -47,7 +47,7 @@ string[]
 
 ###### Request
 
-`GET https://logo-icons-lookup-api-deno.deno.dev/all_logo_icons`
+`GET https://logo-icons-lookup-api.deno.dev/all_logo_icons`
 
 ###### Response
 
@@ -81,7 +81,7 @@ string[]
 
 #### Request
 
-`GET https://logo-icons-lookup-api-deno.deno.dev/lookup_logo_icon?logoIconName=monzo bank&size=50`
+`GET https://logo-icons-lookup-api.deno.dev/lookup_logo_icon?logoIconName=monzo bank&size=50`
 
 #### Response
 
