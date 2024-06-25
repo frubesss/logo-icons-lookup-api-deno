@@ -24,7 +24,9 @@ const requestHandler = async (request: Request) => {
       status: 400,
     },
   );
+
   logRequest(request, response, Date.now() - requestStartTime);
+
   return response;
 };
 
