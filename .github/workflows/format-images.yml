@@ -20,6 +20,11 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
       - name: Get logo icons changed
         id: changed-logo-icons
         uses: tj-actions/changed-files@v45
