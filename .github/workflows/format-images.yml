@@ -27,7 +27,7 @@ jobs:
 
       - name: Get logo icons changed
         id: changed-logo-icons
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@v39
         with:
           separator: ","
           files: |
