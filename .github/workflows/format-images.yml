@@ -3,14 +3,13 @@ name: Format images
 on:
   pull_request:
     paths:
-      - 'logoIcons/**/*.jpg'
-      - 'logoIcons/**/*.jpeg'
-      - 'logoIcons/**/*.png'
-      - 'logoIcons/**/*.webp'
+      - "logoIcons/**/*.jpg"
+      - "logoIcons/**/*.jpeg"
+      - "logoIcons/**/*.png"
+      - "logoIcons/**/*.webp"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -57,7 +56,7 @@ jobs:
       - name: Commit changes
         uses: endbug/add-and-commit@v4
         with:
-          add: './logoIcons'
+          add: "./logoIcons"
           author_name: "github-actions[bot]"
           author_email: "github-actions@users.noreply.github.com"
         env:

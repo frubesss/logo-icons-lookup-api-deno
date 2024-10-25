@@ -1,0 +1,64 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@std/assert@^1.0.6": "1.0.6",
+    "jsr:@std/fmt@^1.0.3": "1.0.3",
+    "jsr:@std/internal@^1.0.4": "1.0.4"
+  },
+  "jsr": {
+    "@std/assert@1.0.6": {
+      "integrity": "1904c05806a25d94fe791d6d883b685c9e2dcd60e4f9fc30f4fc5cf010c72207",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/fmt@1.0.3": {
+      "integrity": "97765c16aa32245ff4e2204ecf7d8562496a3cb8592340a80e7e554e0bb9149f"
+    },
+    "@std/internal@1.0.4": {
+      "integrity": "62e8e4911527e5e4f307741a795c0b0a9e6958d0b3790716ae71ce085f755422"
+    }
+  },
+  "remote": {
+    "https://deno.land/x/deno_image@0.0.4/deps.ts": "ab0d77ff6a832f98fd47ca3eccc53c277c188768b9526743dbce76e8944ddceb",
+    "https://deno.land/x/deno_image@0.0.4/index.ts": "53a1ad6d0d1bfc158b2f4d774077e691d7384540bc93db74254ad32106982b7f",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/PNGDecoder.ts": "9ab11e0e4081ae9beec33bc9fff2343d0cacd9f97e7493f8ecaa836b3855b4e6",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/PNGEncoder.ts": "d24f87fffed9f59ae65e51562d049db16bb73d81416de44f4e38923c552d076a",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/common.ts": "96a3ee4a7e5e2067d51fd89a60e3a25c34bde867629d576285078ce3619c0789",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/index.ts": "e6af07e10d88bdf988a723a7dd9bcc278f0e797374f2b8c74d9e76f134117121",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/internalTypes.ts": "aa00b83cb49aa2c6cc833e4f28476e6ed5b4a5995aaa3da465c54e3fe9df0acd",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/iobuffer/IOBuffer.ts": "a030ae19737ebb98576f3ffcb620ce63058b98fe0f44528440b94d973823face",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/iobuffer/utf8.ts": "c2241c9ac7a46ca0734ffc040c704c506d9447cafc1975ca65c574f0a9391d59",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/index.js": "315a2b1dc7709050d632dbea1c920a4dc405f7079e88494d217d12d7a0d7e285",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/deflate.js": "f019793490803b3ac8e0193dcb9c5787b394909182a09cb5125767e4031c3c0e",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/inflate.js": "7c07d6084f95159405356fd35a77d6c79f35ca19048bb8e35630477f6da3cd34",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/utils/common.js": "d4e0dfc23eece2ab062d53e2f9726c14675bfe20cd890eeceb87291f31c5439b",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/utils/strings.js": "93d014c89c3d72ae2de82b29ae2e93583c203c04a494886d1826095b30e2c4fe",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/adler32.js": "495ef7b1d93d1b12aacfa0f13ef8d7f8f90e2b0073942bfc01b15d2b54e7f5d1",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/constants.js": "a50cd695b9408e424c1c04d3d5b50c06051861beb8417d008c2a973073c285cc",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/crc32.js": "529262cc302562e854873480dfa2654ce9b7ee32474cbbf12526426928e001be",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/deflate.js": "29b5c80f4ee3df72dd267693069a7418fec4d3c00015453539cf8ea28dd8952c",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/gzheader.js": "7395e33c625c064dfcbee9b84f4ff77c47a94dda9e117e1aca749df96c5b76f9",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/inffast.js": "113e0dc8a0878880ac0b5437b66395309938f55b6036613f3bcc4cd2b0c95baa",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/inflate.js": "c3d6cfaf68a4c2d97d24e5bd7754622b59860fcd317a0f56cde5431e51ad5fed",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/inftrees.js": "53c160e37b83f2325b1d85b7927bfde7bdd680a85175affef0862e5bfe775681",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/messages.js": "ed9ad2f2379aab2cffa6692db2a5be3a2af30d36f3940339b053a10045d8a2a6",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/trees.js": "a2f17c8e20e57214076c1efa1bf9d1444543ce7b6de364f09cab9ec7a0a4a31b",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/pako/lib/zlib/zstream.js": "a4667e4b65cc69d31787cf1a695533e22e0b54e441d470524db6abe82bc29a25",
+    "https://deno.land/x/deno_image@0.0.4/lib/decoders/fast-png/types.ts": "1dd91035997af1ea8d92a8887b9c28401ccf5f453ea5442e542055d94ca92602",
+    "https://deno.land/x/deno_image@0.0.4/lib/resize/resize.js": "271fc007ae18b90628f1c9b213ac900875ccec31214fe9cfc338a467237acbdc",
+    "https://deno.land/x/deno_image@0.0.4/mime-type.ts": "f6cbba14a3a6503554113bf6f9acae8fd6112245e1e659a922828fc2acab1d1f",
+    "https://deno.land/x/deno_image@0.0.4/types.ts": "2c731878a70c232a710fc1fb650a01765d87cb31dcd07dc1561875a5ad486d20",
+    "https://deno.land/x/jpegts@1.1/lib/decoder.ts": "b8823ee917fc99a1e085c353b2cd4ca1fbaacaaf1f80be94175e42487666c822",
+    "https://deno.land/x/jpegts@1.1/lib/encoder.ts": "d75fc5ae88f77e1fa349af08d7a46937add31a03b6d3605ff4d2e3303eb32b3b",
+    "https://deno.land/x/jpegts@1.1/lib/image.ts": "32255e99b6c1bf4e72e13367516a0d878ba9d195d81fac1f145ce4c11e951962",
+    "https://deno.land/x/jpegts@1.1/lib/pixel.ts": "19f7f28f09514157be87d01d1d12915cc17c787d8c1707899d2f5570ac6a12fe",
+    "https://deno.land/x/jpegts@1.1/mod.ts": "2014257f7269bcc822a4d6eb871e5002b347f13a641c12d45c1a61586374f127"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@^1.0.6",
+      "jsr:@std/fmt@^1.0.3"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.206.0/assert/mod.ts";
+import { assertEquals } from "@std/assert";
 
 import getAllLogoIcons from "../utils/getAllLogoIcons.ts";
 import requestHandler from "../requestHandler.ts";
