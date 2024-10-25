@@ -24,8 +24,9 @@ jobs:
         id: changed-logo-icons
         uses: tj-actions/changed-files@v45
         with:
-          separator: ','
-          files: ./logoIcons
+          separator: ","
+          files: |
+            ./logoIcons
 
       - name: Resize images to 200x200 and convert to .png
         run: |
