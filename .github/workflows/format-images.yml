@@ -35,9 +35,11 @@ jobs:
 
       - name: Resize images to 200x200 and convert to .png
         run: |
+          echo "Changed files: ${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           IFS=$','
           vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           for file in $vals; do
+            echo "Processing file: $file"
             npx sharp resize 200 200 --format png --output ./logoIcons --input "$file"
           done
 
