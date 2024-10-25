@@ -35,7 +35,7 @@ jobs:
 
       - name: Resize images to 200x200 and convert to .png
         run: |
-          npm install sharp-cli
+          npm install -g sharp-cli
           echo "Changed files: ${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           IFS=$','
           vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
