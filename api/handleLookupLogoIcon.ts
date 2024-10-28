@@ -3,7 +3,10 @@ import { resize } from "https://deno.land/x/deno_image@0.0.4/index.ts";
 import logRequest from "../utils/logRequest.ts";
 import findLogoIcon from "../utils/findLogoIcon.ts";
 
-const lookupLogoIcon = async (request: Request, requestStartTime: number) => {
+const handleLookupLogoIcon = async (
+  request: Request,
+  requestStartTime: number,
+) => {
   const requestUrl = new URL(request.url);
 
   const logoIconNameQueryParameter = requestUrl.searchParams.get(
@@ -81,4 +84,4 @@ const lookupLogoIcon = async (request: Request, requestStartTime: number) => {
   }
 };
 
-export default lookupLogoIcon;
+export default handleLookupLogoIcon;
