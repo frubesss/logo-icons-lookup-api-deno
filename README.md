@@ -13,9 +13,7 @@ Example Use Case: You're given 'American Express Europe Ltd' and need the
 American Express logo. This API simplifies the process by returning the relevant
 logo through pattern matching.
 
-Check out our Logo Gallery to see all available logos.
-
-- [Gallery of all logos currently available](https://financial-logos-app.vercel.app)
+Check out our [Logo Icon Gallery](https://frubesss.github.io/logo-icons-web-app) to see all available logos.
 
 ## How to Use
 
