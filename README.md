@@ -31,7 +31,9 @@ Check out our Logo Gallery to see all available logos.
 
 ## API Endpoints
 
-### 1. Get All Logo Icons
+### 1. List All Logo Icons
+
+Returns a JSON array of all available logo icons
 
 #### Request
 
@@ -66,10 +68,10 @@ string[]
 
 `GET /lookup_logo_icon?logoIconName=:logoIconName`
 
-| Query Parameter | Type   | Default   | Required | Description                                                                                                                                 |
-| --------------- | ------ | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| logoIconName    | string | undefined | Yes      | Name of logo icon you would like to find                                                                                                    |
-| size            | number | 200       | No       | Size of the logo icon image to be returned. For performance, you want to set this to the same size you will be rendering in the application |
+| Query Parameter | Type   | Default   | Required | Description                                                                                                                                           |
+| --------------- | ------ | --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| logoIconName    | string | undefined | Yes      | Name of logo icon you would like to find                                                                                                              |
+| size            | number | 200       | No       | An integer between 1 and 200 to resize the logo icon. For performance, you want to set this to the same size you will be rendering in the application |
 
 #### Response
 

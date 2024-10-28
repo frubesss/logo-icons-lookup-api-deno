@@ -1,6 +1,6 @@
 import { bold, cyan, gray, green, red, yellow } from "@std/fmt/colors";
 
-const getMethodColor = (status: number) => {
+const getStatusColor = (status: number) => {
   if (status >= 500) {
     return red(status.toString());
   }
@@ -12,11 +12,15 @@ const getMethodColor = (status: number) => {
   return green(status.toString());
 };
 
-const logRequest = (request: Request, response: Response, time: number) => {
+const logRequest = (
+  request: Request,
+  response: Response,
+  duration: number,
+) => {
   console.log(
-    `${gray(request.method)} ${getMethodColor(response.status)} - ${
-      cyan(new URL(request.url).toString())
-    } - ${bold(`${time}ms`)}`,
+    `${gray(request.method)} ${getStatusColor(response.status)} - ${
+      cyan(request.url)
+    } - ${bold(`${duration}ms`)}`,
   );
 };
 

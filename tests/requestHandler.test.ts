@@ -1,7 +1,7 @@
 import { assertEquals } from "@std/assert";
 
 import getAllLogoIcons from "../utils/getAllLogoIcons.ts";
-import requestHandler from "../requestHandler.ts";
+import { requestHandler } from "../index.ts";
 
 Deno.test("returns 400 response when no valid path provided", async () => {
   const request = new Request("http://localhost:8000/hello");
