@@ -25,7 +25,7 @@ jobs:
         run: |
           npm install -g sharp-cli
           for file in ${ALL_CHANGED_FILES}; do
-            sharp "$file" resize 200 200 --format png --output ./logoIcons
+            sharp resize 200 200 --format png --input "$file" --output ./logoIcons
           done
 
       - name: Remove any left over none png images from sharp command
