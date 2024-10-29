@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Get logo icons changed
         id: changed-logo-icons
@@ -30,7 +32,7 @@ jobs:
           npm install -g sharp-cli
           IFS=$','
           for file in ${ALL_CHANGED_FILES}; do
-            sharp resize 200 200 --format png --input "$file" --output ./logoIcons
+            sharp resize 200 200 --palette --compressionLevel 9 --format png --input "$file" --output ./logoIcons
           done
 
       - name: Remove any left over none png images from sharp command
@@ -43,8 +45,3 @@ jobs:
           git add -A
           git commit -m "update images"
           git push
-
-      - name: Compress images
-        uses: calibreapp/image-actions@main
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
