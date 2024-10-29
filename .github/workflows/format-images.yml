@@ -25,8 +25,7 @@ jobs:
         uses: tj-actions/changed-files@v45
         with:
           separator: ","
-          files: |
-            ./logoIcons
+          files: logoIcons/**
 
       - name: Resize images to 200x200 and convert to .png
         if: steps.changed-logo-icons.outputs.any_changed == 'true'
