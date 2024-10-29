@@ -3,10 +3,7 @@ name: Format images
 on:
   pull_request:
     paths:
-      - "logoIcons/**/*.jpg"
-      - "logoIcons/**/*.jpeg"
-      - "logoIcons/**/*.png"
-      - "logoIcons/**/*.webp"
+      - "logoIcons/**"
 
 jobs:
   build:
@@ -22,21 +19,20 @@ jobs:
 
       - name: Get logo icons changed
         id: changed-logo-icons
-        uses: tj-actions/changed-files@v39
+        uses: tj-actions/changed-files@v45
         with:
           separator: ","
-          files: |
-            ./logoIcons
+          files: logoIcons/**
 
       - name: Resize images to 200x200 and convert to .png
+        if: steps.changed-logo-icons.outputs.any_changed == 'true'
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-logo-icons.outputs.all_changed_files }}
         run: |
           npm install -g sharp-cli
-          echo "Changed files: ${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
           IFS=$','
-          vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
-          for file in $vals; do
-            echo "Processing file: $file"
-            sharp resize 200 200 --format png --output ./logoIcons --input "$file"
+          for file in ${ALL_CHANGED_FILES}; do
+            sharp resize 200 200 --compressionLevel 9 --palette --format png --input "$file" --output ./logoIcons
           done
 
       - name: Remove any left over none png images from sharp command
@@ -47,10 +43,5 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m "Delete non-PNG images and resize other images"
+          git commit -m "update images"
           git push
-
-      - name: Compress images
-        uses: calibreapp/image-actions@main
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
