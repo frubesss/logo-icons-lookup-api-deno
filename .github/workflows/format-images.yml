@@ -33,13 +33,8 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-logo-icons.outputs.all_changed_files }}
         run: |
-          npm install -g sharp-cli
-          echo "Changed files: ${ALL_CHANGED_FILES}"
-          IFS=$','
-          echo "Changed files: ${ALL_CHANGED_FILES}"
           for file in ${ALL_CHANGED_FILES}; do
-            echo "Processing file: $file"
-            sharp resize 200 200 --format png --output ./logoIcons --input "$file"
+            echo "$file was changed"
           done
 
       - name: Remove any left over none png images from sharp command
