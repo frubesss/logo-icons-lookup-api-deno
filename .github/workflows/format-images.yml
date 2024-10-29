@@ -18,6 +18,8 @@ jobs:
       - name: Get logo icons changed
         id: changed-logo-icons
         uses: tj-actions/changed-files@v45
+        with:
+          separator: ","
 
       - name: Resize images to 200x200 and convert to .png
         env:
