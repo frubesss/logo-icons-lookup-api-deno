@@ -15,17 +15,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get all logo icons changed
+      - name: Get logo icons changed
         id: changed-logo-icons
         uses: tj-actions/changed-files@v45
+        with:
+          files: logoIcons/**
 
       - name: Resize images to 200x200 and convert to .png
+        if: steps.changed-logo-icons.outputs.any_changed == 'true'
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-logo-icons.outputs.all_changed_files }}
         run: |
           npm install -g sharp-cli
           for file in ${ALL_CHANGED_FILES}; do
-            sharp resize 200 200 --format png --input "$file" --output ./logoIcons
+            sharp resize 200 200 --format png --output ./logoIcons --input "$file"
           done
 
       - name: Remove any left over none png images from sharp command
