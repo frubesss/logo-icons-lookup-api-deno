@@ -14,7 +14,9 @@ American Express logo. This API simplifies the process by returning the relevant
 logo through pattern matching.
 
 Check out our [Logo Icon Gallery](https://frubesss.github.io/logo-icons-web-app)
-to see all available logos.
+to see all available logos and the
+[repository](https://github.com/frubesss/logo-icons-web-app) for an
+implementation example.
 
 ## How to Use
 
@@ -98,7 +100,7 @@ string[]
   within the repository.
 - Name the file after the company it represents.
 - Add it to the logoIcons directory.
-- Create a PR. GitHub actions will auto-format the image (png, square,
+- Create a PR. GitHub actions will auto-format the image (png, 200x200 square,
   compressed).
 
 ### Other
@@ -124,7 +126,7 @@ deno run --allow-read --allow-net ./index.ts
 ### Running tests
 
 ```sh
-deno test --allow-read
+deno test --allow-read --allow-net
 ```
 
 ## Built with
