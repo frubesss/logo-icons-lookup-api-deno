@@ -3,10 +3,7 @@ name: Format images
 on:
   pull_request:
     paths:
-      - "logoIcons/**/*.jpg"
-      - "logoIcons/**/*.jpeg"
-      - "logoIcons/**/*.png"
-      - "logoIcons/**/*.webp"
+      - "logoIcons/**"
 
 jobs:
   build:
@@ -17,25 +14,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
 
       - name: Get logo icons changed
         id: changed-logo-icons
-        uses: tj-actions/changed-files@v39
-        with:
-          separator: ","
-          files: |
-            ./logoIcons
+        uses: tj-actions/changed-files@v45
 
       - name: Resize images to 200x200 and convert to .png
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-logo-icons.outputs.all_changed_files }}
         run: |
           npm install -g sharp-cli
-          echo "Changed files: ${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
-          IFS=$','
-          vals="${{ steps.changed-logo-icons.outputs.all_changed_and_modified_files }}"
-          for file in $vals; do
-            echo "Processing file: $file"
+          for file in ${ALL_CHANGED_FILES}; do
             sharp resize 200 200 --format png --output ./logoIcons --input "$file"
           done
 
@@ -47,7 +36,7 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m "Delete non-PNG images and resize other images"
+          git commit -m "update images"
           git push
 
       - name: Compress images
