@@ -32,6 +32,7 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-logo-icons.outputs.all_changed_files }}
         run: |
+          npm install -g sharp-cli
           for file in ${ALL_CHANGED_FILES}; do
             sharp resize 200 200 --format png --output ./logoIcons --input "$file"
           done
