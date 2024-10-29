@@ -35,6 +35,8 @@ jobs:
         run: |
           npm install -g sharp-cli
           echo "Changed files: ${ALL_CHANGED_FILES}"
+          IFS=$','
+          echo "Changed files: ${ALL_CHANGED_FILES}"
           for file in ${ALL_CHANGED_FILES}; do
             echo "Processing file: $file"
             sharp resize 200 200 --format png --output ./logoIcons --input "$file"
