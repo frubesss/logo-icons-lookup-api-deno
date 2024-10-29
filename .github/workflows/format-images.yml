@@ -33,7 +33,7 @@ jobs:
           ALL_CHANGED_FILES: ${{ steps.changed-logo-icons.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
+            sharp resize 200 200 --format png --output ./logoIcons --input "$file"
           done
 
       - name: Remove any left over none png images from sharp command
